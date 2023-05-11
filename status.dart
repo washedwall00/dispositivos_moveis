@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class Status extends StatelessWidget {
@@ -5,39 +7,77 @@ class Status extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: ListView(
-        children: [
-          ListTile(
-            subtitle: Text("Toque para adicionar um status"),
-            title: Text("Meus Status"),
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(
-                "https://images.unsplash.com/photo-1682356828551-96826d14382b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    return ListView(
+      children: [
+        ListTile(
+          title: Text("Meu status"),
+          subtitle: Text("Toque para atualizar seu status"),
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://lh3.googleusercontent.com/ogw/AOLn63FQBmTzY2aKthrE8FTV2Iez2jSc4V8ZSRe_YccyQg=s32-c-mo"),
+          ),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text("Atualizações recentes"),
+        ),
+        ListTile(
+          title: Row(
+            children: [
+              Text(
+                "WhatsApp",
+                style: TextStyle(
+                  color: Color.fromARGB(223, 42, 206, 20),
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            trailing: Text("."),
+              SizedBox(width: 7,),
+              Icon(Icons.verified, color: Colors.green, size: 18,),
+            ],
           ),
-          ListTile(
-            onTap: () {
-              print("A conversa foi clicada");
-            },
-            
-            title: Text("Atualizações recentes"),
-            
-            trailing: Text("."),
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://t.ctcdn.com.br/63V25kDFoZnMMF2WjQavNUcoawY=/400x400/smart/filters:format(webp)/i618809.png"),
           ),
-          ListTile(
-          
-            title: Text("Whatsapp ☆"),
-            leading: CircleAvatar(
-              child: Text("."),
-            ),
-            trailing: Text("09:01"),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text("Ciclano do ano"),
+          subtitle: Text("Hoje 10:25"),
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAoD900rlP_dWKQ0g7pDm75iakIAsfBrcf_A&usqp=CAU"),
           ),
-        ],
-      ),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text("Ciclana da Cana"),
+          subtitle: Text("Hoje 11:23"),
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
+          ),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text("Fulano Baiano"),
+          subtitle: Text("Hoje 12:35"),
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://images.unsplash.com/photo-1676322559474-91c24a7e6a1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"),
+          ),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text("Mariso Sorriso"),
+          subtitle: Text("Hoje 13:15"),
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://images.unsplash.com/photo-1554147687-e471aee1ff5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"),
+          ),
+          onTap: () {},
+        ),
+      ],
     );
   }
 }
