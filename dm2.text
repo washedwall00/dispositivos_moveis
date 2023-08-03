@@ -1,0 +1,187 @@
+import 'dart:html';
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(PaginaInicial());
+}
+
+class PaginaInicial extends StatelessWidget {
+  const PaginaInicial({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      routes: {
+        '/': (context) => Home(),
+        '/contador': (context) => Contador(),
+        '/curtir': (context) => Curtir(),
+      },
+
+      theme: ThemeData.dark(),
+    );
+  }
+}
+class Curtir extends StatelessWidget {
+  const Curtir({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar (
+        title: Text ("Curtir"),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            IconButton( icon: (Icons.favorite_outline),
+                        onPressed: () {},
+        )],
+
+        ),
+
+      ),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurpleAccent,
+        title: Text("Aplicativo do Wagner 👍"),
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            leading: Icon(
+              Icons.exposure_plus_1,
+              size: 36,
+              color: Colors.lightGreenAccent,
+            ),
+            title: Text("Counter"),
+            subtitle: Text("Increment example"),
+            trailing: Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.pushNamed(context, '/contador');
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.favorite,
+              size: 36,
+              color: Colors.redAccent,
+            ),
+            title: Text("Like"),
+            subtitle: Text(""),
+            trailing: Icon(Icons.chevron_right),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Contador extends StatefulWidget {
+  const Contador({super.key});
+
+
+
+  @override
+  State<Contador> createState() => _ContadorState();
+}
+
+class _ContadorState extends State<Contador> {
+  int x = 100;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        title: Text("Meu app 😊"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              x.toString(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontSize: 70,
+                  fontWeight: FontWeight.bold),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      x = x + 1;
+                    });
+                  },
+                  child: Text("+1"),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(0, 0, 0, 0)),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      x = x - 1;
+                    });
+                  },
+                  child: Text("-1"),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(0, 0, 0, 0)),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      x = x + 100;
+                    });
+                  },
+                  child: Text("+100"),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 0, 255, 0)),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      x = x - 100;
+                    });
+                  },
+                  child: Text("-100"),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 255, 0, 0)),
+                ),
+              ],
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  x = 0;
+                });
+              },
+              child: Text("RESET"),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(0, 0, 0, 0)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
